@@ -1,3 +1,11 @@
+if ! test -d $HOME/.fish/
+  mkdir $HOME/.fish/
+  cp ./example-fishrc.fish ~/.fish/fishrc.fish
+end
+if ! test -f $HOME/.fish/fishrc.fish
+  cp ./example-fishrc.fish ~/.fish/fishrc.fish
+end
+
 if status is-interactive
   function new_alias
     alias $argv
