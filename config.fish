@@ -3,7 +3,7 @@ if status is-interactive
     alias $argv
   end
   # load user config file
-  source $HOME/.fishrc.fish
+  source $HOME/.fish/fishrc.fish
   # set welcome message
   set fish_greeting $welcome_message
   # term color
