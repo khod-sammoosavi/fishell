@@ -25,6 +25,14 @@ and user costom configurations in : `~/.config/fish/fishrc.fish`
 └── fishrc.fish
 
 ```
+## Create new colorscheme
+Colorschemes located in the `colorschemes` directory.
+To write a new theme, you need to create a file named "theme" in this directory and apply the new theme.
+
+**For example :**
+```fish
+set colorscheme "default"
+```
 ## Installation
 ```bash
 git clone https://gitlab.com/sammoosavi/fish.git ~/.config/fish
