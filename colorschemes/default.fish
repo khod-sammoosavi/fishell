@@ -44,7 +44,7 @@ set initial_indicator $blue"[$normal$USER$red@$normal$hostname$blue]"
 set status_indicator "$red❯$red❯$red❯$red❯"
 end
 if set -q VIRTUAL_ENV
-set venv $whitespace (set_color yellow) " (" (basename "$VIRTUAL_ENV") (set_color yellow) ")"
+set venv $whitespace (set_color yellow) " (" (basename "$VIRTUAL_ENV") (set_color yellow) ")"
 end
 
 printf "%s%s%s%s%s%s%s%s%s" $initial_indicator $whitespace $cyan(basename (prompt_pwd)) $(__fish_git_prompt) $venv $node_prompt $whitespace $status_indicator $whitespace
