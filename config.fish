@@ -45,7 +45,7 @@ if status is-interactive
   set -gx PATH bin $PATH
   set -gx PATH $HOME/bin $PATH
   set -gx PATH $HOME/.local/bin $PATH
-  set -gx PATH "$HOME/.cargo/bin:$PATH"
+  set -gx PATH $HOME/.cargo/bin $PATH
   set -gx PATH $PATH
   # nodejs
   set -gx PATH node_modules/.bin $PATH
