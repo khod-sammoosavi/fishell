@@ -45,7 +45,7 @@ set initial_indicator $blue"[$normal$USER$red@$normal$hostname$blue]"
 set status_indicator "$red❯$red❯$red❯$red❯"
 end
 if set -q VIRTUAL_ENV
-set venv "$(set_color yellow)  (" (basename "$VIRTUAL_ENV") (set_color yellow) ")"
+set venv $(set_color yellow)"  ("(basename "$VIRTUAL_ENV")")"
 end
 
 function seperator #defines the function, you can use any other name for it
@@ -56,6 +56,6 @@ end
 
 seperator
 
-printf "\n%s%s%s%s\n%s%s%s%s" $initial_indicator $whitespace (prompt_pwd) $(__fish_git_prompt) $venv $node_prompt $status_indicator $whitespace
+printf "\n%s%s%s%s%s%s%s%s%s" $initial_indicator $whitespace (prompt_pwd) $(__fish_git_prompt) $venv $node_prompt \n$status_indicator $whitespace
 
 end
