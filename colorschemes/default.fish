@@ -49,13 +49,23 @@ set venv $(set_color yellow)"  ("(basename "$VIRTUAL_ENV")")"
 end
 
 function seperator #defines the function, you can use any other name for it
-  for i in (seq $(tput cols)) #starts a for loop that will repeat as many times as second argument given
-    printf $blue"-" #prints the first argument given (the string)
+  for i in (seq $argv[2]) #starts a for loop that will repeat as many times as second argument given
+    printf $blue$argv[1] #prints the first argument given (the string)
   end
 end
 
-seperator
+seperator "-" $(tput cols)
 
-printf "\n%s%s%s%s%s%s%s%s%s" $initial_indicator $whitespace (prompt_pwd) $(__fish_git_prompt) $venv $node_prompt \n$status_indicator $whitespace
+set prompt $initial_indicator $whitespace (prompt_pwd) $(__fish_git_prompt) $venv $node_prompt \n$status_indicator $whitespace
+
+printf "\n%s%s%s%s%s%s%s%s%s" $prompt
+
+function fish_right_prompt
+  if test $status = 0
+  echo $green $(date "+%r") ' '
+  else
+  echo $red $(date "+%r") ' '
+  end
+end
 
 end
