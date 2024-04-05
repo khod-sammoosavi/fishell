@@ -5,6 +5,7 @@ set -g blue (set_color -o blue)
 set -g green (set_color -o green)
 set -g purple (set_color -o purple)
 set -g normal (set_color normal)
+set -g grey (set_color -o grey)
 
 set -g whitespace " "
 
@@ -44,9 +45,17 @@ set initial_indicator $blue"[$normal$USER$red@$normal$hostname$blue]"
 set status_indicator "$red❯$red❯$red❯$red❯"
 end
 if set -q VIRTUAL_ENV
-set venv $whitespace (set_color yellow) " (" (basename "$VIRTUAL_ENV") (set_color yellow) ")"
+set venv "$(set_color yellow)  (" (basename "$VIRTUAL_ENV") (set_color yellow) ")"
 end
 
-printf "%s%s%s%s%s%s%s%s%s" $initial_indicator $whitespace $cyan(basename (prompt_pwd)) $(__fish_git_prompt) $venv $node_prompt $whitespace $status_indicator $whitespace
+function seperator #defines the function, you can use any other name for it
+  for i in (seq $(tput cols)) #starts a for loop that will repeat as many times as second argument given
+    printf $blue"-" #prints the first argument given (the string)
+  end
+end
+
+seperator
+
+printf "\n%s%s%s%s\n%s%s%s%s" $initial_indicator $whitespace (prompt_pwd) $(__fish_git_prompt) $venv $node_prompt $status_indicator $whitespace
 
 end

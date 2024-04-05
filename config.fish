@@ -1,9 +1,9 @@
 if ! test -d $HOME/.fish/
   mkdir $HOME/.fish/
-  cp ./example-fishrc.fish ~/.fish/fishrc.fish
+  cp $HOME/.config/fish/example-fishrc.fish $HOME/.fish/fishrc.fish
 end
 if ! test -f $HOME/.fish/fishrc.fish
-  cp ./example-fishrc.fish ~/.fish/fishrc.fish
+  cp $HOME/.config/fish/example-fishrc.fish $HOME/.fish/fishrc.fish
 end
 
 if status is-interactive
@@ -20,7 +20,7 @@ if status is-interactive
   set -gx PAGER less
   # theme
   set -g theme_color_scheme terminal-dark
-  set -g fish_prompt_pwd_dir_length 1
+  set -g fish_prompt_pwd_dir_length 25
   set -g theme_display_user yes
   set -g theme_hide_hostname no
   set -g theme_hostname always
@@ -55,3 +55,7 @@ if status is-interactive
   # prompt
   source (dirname (status --current-filename))/colorschemes/$colorscheme.fish
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
