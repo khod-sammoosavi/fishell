@@ -1,3 +1,5 @@
+set -Ux __FISHEll_IS_INSTALED true
+
 if ! test -d $HOME/.fish/
   mkdir $HOME/.fish/
   cp $HOME/.config/fish/example-fishrc.fish $HOME/.fish/fishrc.fish
